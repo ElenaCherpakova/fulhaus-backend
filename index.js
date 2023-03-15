@@ -6,7 +6,7 @@ const methodOverride = require('method-override');
 const app = express();
 const PORT = 3000;
 
-// Connect to MongoDB using mongoose 
+// Connect to MongoDB using mongoose
 const connectDB = async () => {
   try {
     await mongoose.connect('mongodb://localhost:27017/acronymApp');
@@ -17,21 +17,16 @@ const connectDB = async () => {
 };
 connectDB();
 
-app.engine('ejs', ejsMate)
+app.engine('ejs', ejsMate);
 
 const path = require('path');
-
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
-app.use(express.static(path.join(__dirname, 'public')))
-
-
-
+app.use(express.static(__dirname + '/public'));
 
 // import Acronym schema from models
 const Acronym = require('./models/acronym');
