@@ -1,0 +1,34 @@
+<%-layout('layout/boilerplate'); %>
+
+<h1>All Acronyms!</h1>
+<form action="/acronyms" method="GET">
+  <label for="search">Search</label>
+  <input type="text" name="search" id="search" value="<%= search %>" />
+  <button type="submit">Search</button>
+</form>
+<div class="container">
+  <% if (acronyms.length > 0) { %>
+  <ul>
+    <% for (acronym of acronyms) { %>
+    <li>
+      <a href="/acronyms/<%=acronym._id%>">
+        <%= acronym.acronym %> - <%= acronym.definition %></a
+      >
+    </li>
+    <% } %>
+  </ul>
+</div>
+<% if(page > 1) { %>
+<a href="/acronyms?page=<%= page - 1 %>&limit=<%= limit %>&search=<%= search %>"
+  >Previous Page</a
+>
+<% } %> <% if (hasMoreResults) { %>
+<a href="/acronyms?page=<%= page + 1 %>&limit=<%= limit %>&search=<%= search %>"
+  >Next Page</a
+>
+<% } %> <% } else { %>
+<p>No acronyms found</p>
+<% } %>
+<div>
+  <a href="/acronyms/new">Add a New Acronym</a>
+</div>

@@ -1,0 +1,21 @@
+<%-layout('layout/boilerplate'); %>
+<body>
+  <h1>Edit Acronym OR Definition</h1>
+  <form action="/acronyms/<%=acronym._id%>?_method=PATCH" method="POST">
+    <label for="acronym">Acronym</label>
+    <input
+      type="text"
+      name="acronym"
+      id="acronym"
+      placeholder="acronym"
+      value="<%=acronym.acronym%>" />
+    <label for="definition">Definition</label>
+    <input
+      type="text"
+      name="definition"
+      id="definition"
+      value="<%=acronym.definition%>" />
+    <button type="submit">Edit</button>
+  </form>
+  <a href="/acronyms/<%=acronym._id %>">Cancel</a>
+</body>

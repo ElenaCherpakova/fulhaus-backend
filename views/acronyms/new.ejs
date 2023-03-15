@@ -1,0 +1,14 @@
+<%-layout('layout/boilerplate'); %>
+    <h1>Add a New Acronym</h1>
+    <form action="/acronyms" method="POST">
+      <label for="acronym">Acronym</label>
+      <input type="text" name="acronym" id="acronym" placeholder="acronym" />
+      <label for="definition">Definition</label>
+      <input
+        type="text"
+        name="definition"
+        id="definition"
+        placeholder="definition" />
+      <button type="submit">Add</button>
+    </form>
+    <a href="/acronyms">Cancel</a>

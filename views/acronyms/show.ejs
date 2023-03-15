@@ -1,0 +1,9 @@
+<%-layout('layout/boilerplate'); %>
+
+<h1>Acronym - <%=acronym.acronym %></h1>
+<h2>Definition - <%=acronym.definition %></h2>
+<a href="/acronyms/<%=acronym._id%>/edit">Edit</a>
+<form action="/acronyms/<%=acronym._id%>?_method=DELETE" method="POST">
+  <button>Delete</button>
+</form>
+<a href="/acronyms">Back to all Acronyms</a>
