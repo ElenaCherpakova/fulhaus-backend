@@ -23,7 +23,6 @@ There are already some seed data present in the database. To seed the database w
 ```
 node seeds.js
 ```
-
 ## Technologies Used
 - NodeJS
 - ExpressJS
